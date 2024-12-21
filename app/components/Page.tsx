@@ -15,7 +15,7 @@ export default function Page({ title, embedUrl, question, answer, index, nextPat
         backPath: string
     }) {
     const [isGuessCorrect, setGuessCorrect] = useState(false);
-    let useEmbed = embedUrl != null;
+    const useEmbed = embedUrl != null;
     return <div>
         <h1>{title}</h1>
         {useEmbed && <iframe height="700" width="600" src={embedUrl} />}
