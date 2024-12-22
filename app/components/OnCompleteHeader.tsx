@@ -8,7 +8,7 @@ import EastIcon from '@mui/icons-material/East';
 /*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
 
-export function OnCompleteHeader({ isComplete, title = undefined, button = false, onComplete }: {
+export default function OnCompleteHeader({ isComplete, title = undefined, button = false, onComplete }: {
     isComplete: boolean,
     title?: string,
     button: boolean,

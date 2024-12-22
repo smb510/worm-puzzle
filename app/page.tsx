@@ -1,6 +1,6 @@
 "use client";
 
-import { OnCompleteHeader } from './components/OnCompleteHeader';
+import OnCompleteHeader  from './components/OnCompleteHeader';
 import { Typography } from '@mui/material';
 import { redirect } from "next/navigation";
 
