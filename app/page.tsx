@@ -1,16 +1,14 @@
 "use client";
 
 import { OnCompleteHeader } from './components/OnCompleteHeader';
-import { Typography, Snackbar } from '@mui/material';
-import { useState } from 'react';
+import { Typography } from '@mui/material';
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  const [isComplete, setComplete] = useState(false);
   return (
     <div>
       <OnCompleteHeader isComplete={false} button={true} onComplete={(v) => {
-        setComplete(v)
+        redirect("/one")
       }} />
       <Typography variant='h2'>
         Merry Christmas, Caitlin!
@@ -21,12 +19,6 @@ export default function Home() {
         Here are some puzzles for you to do in order to find out what you are getting. <br />
         Hit the button at the top right to get started! <br />
       </Typography>
-      {isComplete &&
-        <Snackbar message="Correct!" open
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-          autoHideDuration={2000}
-          onClose={redirect("/one")} />
-      }
     </div>
   );
 }
