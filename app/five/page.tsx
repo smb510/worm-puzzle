@@ -6,7 +6,7 @@ import { Box, Typography, Stack } from '@mui/material';
 export default function Home() {
   return (
     <div>
-      <OnCompleteHeader isComplete={true} button={false}  />
+      <OnCompleteHeader isComplete={true} button={false} onComplete={(_) => {}}  />
       <Typography variant='h2'>
         You did it!
       </Typography>
