@@ -1,11 +1,27 @@
-export default function Last() {
-    return <div>
-        <h1>You did it!</h1>
-        <h2>Great work. Now, for your present. You get a choice!</h2>
+import Container from '@mui/material/Container'
+import { OnCompleteHeader } from '../components/OnCompleteHeader';
+import { Box, Typography, Stack } from '@mui/material';
 
-        <h3>Option 1: A Rice Cooker to help you meal prep.</h3>
-
-        <h2>Option 2: 6 months of book of the month!</h2>
-    </div>
-
+export default function Home() {
+  return (
+    <Container>
+      <OnCompleteHeader isComplete={true} nextHref='/one' />
+      <Typography variant='h2'>
+        You did it!
+      </Typography>
+      <Typography variant='body1'>
+       Congratulations, you solved all the puzzles! <br />
+       As a reward, you get to pick from one of two options:<br />
+       <Stack direction="row">
+       <Box sx={{flexGrow: 1}}>
+        <b>Option 1:</b> A fancy rice cooker to help with meal prep.
+       </Box>
+       <Box sx={{flexGrow: 1}}>
+       <b>Option 2:</b> A six-month subscription to Book of the Month.
+        </Box>
+        </Stack>
+        Which will it be?
+      </Typography>
+    </Container>
+  );
 }
