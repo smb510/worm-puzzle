@@ -4,10 +4,12 @@ import { OnCompleteHeader } from './components/OnCompleteHeader';
 import { Typography } from '@mui/material';
 import { redirect } from "next/navigation";
 
+/*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
+
 export default function Home() {
   return (
     <div>
-      <OnCompleteHeader isComplete={false} button={true} onComplete={(v) => {
+      <OnCompleteHeader isComplete={false} button={true} onComplete={(_) => {
         redirect("/one")
       }} />
       <Typography variant='h2'>
