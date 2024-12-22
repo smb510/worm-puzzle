@@ -1,15 +1,19 @@
 "use client";
 
-import Page from '../components/Page'
+import Header from '../components/Header';
+import { Box, Container, Typography } from '@mui/material';
 
-export default function PageOne() {
-    return Page({
-        title: "Sensing a pattern? Now time for connectsion.",
-        embedUrl: "https://connections.swellgarfo.com/game/-OEe_ITDN_TqqLnzqFOW",
-        question: "What is traditionally used instead of the sauce in the puzzle?",
-        answer: "hollandaise",
-        index: 3,
-        nextPath: "/four",
-        backPath: "/two"
-    });
+export default function PageThree() {
+    return <Container>
+    <Header answer="hollandaise" nextHref='/four' />
+    <Typography variant="subtitle1">
+    What is traditionally used instead of the sauce in the puzzle?
+    </Typography>
+    <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center">
+        <iframe src='https://connections.swellgarfo.com/game/-OEe_ITDN_TqqLnzqFOW' height={700} />
+    </Box>
+    </Container>
 }

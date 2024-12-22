@@ -1,10 +1,9 @@
 "use client";
 
 import {useState } from 'react';
-import MobileStepper from '@mui/material/MobileStepper';
-import Button from '@mui/material/Button';
 import Crossword from '@jaredreisinger/react-crossword';
-import Link from "next/link";
+import { OnCompleteHeader } from '../components/OnCompleteHeader';
+import { Container, Typography } from '@mui/material';
 
 export default function PageTwo() {
 
@@ -72,27 +71,9 @@ export default function PageTwo() {
         }
     }
 
-    return <div>
-        <h1>Now, a Christmas Crossword for you to solve!</h1>
-        <div style = {{ width: '100vw', display: "flex", paddingBottom: "30px"}}>
-        <Crossword data={data} onCrosswordCorrect={ (isCorrect) => setCrosswordCorrect(isCorrect)} />
-        </div>
-        <footer>
-            <MobileStepper
-                variant="dots"
-                activeStep={2}
-                steps={6}
-                nextButton={
-                    <Button size="small" disabled={!isCrosswordCorrect}>
-                        <Link href="/three">Next</Link>
-                    </Button>
-                }
-                backButton={
-                    <Button size="small" disabled={false}>
-                        <Link href="/one">Back</Link>
-                    </Button>
-                }
-            />
-        </footer>
-    </div>
+    return  <Container>
+        <OnCompleteHeader nextHref="/three" isComplete={isCrosswordCorrect} />
+       { !isCrosswordCorrect && <Crossword data={data} onCrosswordCorrect={ (isCorrect) => setCrosswordCorrect(isCorrect)} />}
+        {isCrosswordCorrect && <Typography variant='h1'>Congratulations! You solved the puzzle!</Typography>}
+    </Container>
   }

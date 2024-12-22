@@ -1,6 +1,3 @@
-
-
-
 export default function Last() {
     return <div>
         <h1>You did it!</h1>
