@@ -1,11 +1,18 @@
 "use client";
 
-import {useState } from 'react';
+import { useState } from 'react';
 import Crossword from '@jaredreisinger/react-crossword';
 import { OnCompleteHeader } from '../components/OnCompleteHeader';
-import { Container, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
+import { redirect } from 'next/navigation';
 
 export default function PageTwo() {
+
+    function onComplete(isComplete: boolean) {
+        if (isComplete) {
+            redirect("/three");
+        }
+    }
 
     const [isCrosswordCorrect, setCrosswordCorrect] = useState(false)
 
@@ -55,7 +62,7 @@ export default function PageTwo() {
                 row: 0,
                 col: 6,
             },
-            4: { 
+            4: {
                 clue: "Prickly plant with bright red berries",
                 answer: "HOLLY",
                 row: 3,
@@ -71,9 +78,9 @@ export default function PageTwo() {
         }
     }
 
-    return  <Container>
-        <OnCompleteHeader nextHref="/three" isComplete={isCrosswordCorrect} />
-       { !isCrosswordCorrect && <Crossword data={data} onCrosswordCorrect={ (isCorrect) => setCrosswordCorrect(isCorrect)} />}
-        {isCrosswordCorrect && <Typography variant='h1'>Congratulations! You solved the puzzle!</Typography>}
-    </Container>
-  }
+    return <div>
+        <OnCompleteHeader isComplete={false} button={isCrosswordCorrect} title={"Complete the crossword to continue."} onComplete={onComplete} />
+        {!isCrosswordCorrect && <Crossword data={data} onCrosswordCorrect={(isCorrect) => setCrosswordCorrect(isCorrect)} />}
+        {isCrosswordCorrect && <Typography variant='h2' sx={{ width: '100vw' }}>Congratulations! You solved the puzzle!</Typography>}
+    </div>
+}

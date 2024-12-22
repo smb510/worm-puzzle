@@ -2,19 +2,38 @@
 
 
 import Header from '../components/Header';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Typography, Stack, Button, Link } from '@mui/material';
+import { useState } from 'react';
 
 export default function PageFour() {
-    return <Container>
-    <Header answer="decorations" nextHref='/five' />
-    <Typography variant="subtitle1">
-    To advance, enter the spangram
-    </Typography>
+
+    const [isMatch, setMatch] = useState(false)
+
+    return <div>
+    <Header answer="decorations" question="What is the spangram?" onMatch={(b) => setMatch(b)}/>
+    {!isMatch &&
     <Box
         display="flex"
         justifyContent="center"
         alignItems="center">
         <iframe src='https://strandstudio.thegoodboi.net/play?id=3FAR9S' height={700} />
     </Box>
-    </Container>
+    }
+        {isMatch &&
+        <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center">
+            <Stack direction="column">
+                <Typography variant='h2'>
+                    Way to go! Something cool awaits.
+                </Typography>
+                <Button>
+                    <Link href="/five">Next</Link>
+                </Button>
+            </Stack>
+        </Box>
+
+    }
+    </div>
 }

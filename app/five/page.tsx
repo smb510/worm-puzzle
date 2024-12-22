@@ -1,11 +1,12 @@
-import Container from '@mui/material/Container'
+"use client";
+
 import { OnCompleteHeader } from '../components/OnCompleteHeader';
 import { Box, Typography, Stack } from '@mui/material';
 
 export default function Home() {
   return (
-    <Container>
-      <OnCompleteHeader isComplete={true} nextHref='/one' />
+    <div>
+      <OnCompleteHeader isComplete={true} button={false}  />
       <Typography variant='h2'>
         You did it!
       </Typography>
@@ -22,6 +23,6 @@ export default function Home() {
         </Stack>
         Which will it be?
       </Typography>
-    </Container>
+    </div>
   );
 }

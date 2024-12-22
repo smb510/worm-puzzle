@@ -1,30 +1,45 @@
 "use client";
 
-import { Box, Toolbar } from "@mui/material";
+import { Box, Toolbar, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import IconButton from '@mui/material/IconButton';
 import EastIcon from '@mui/icons-material/East';
-import Link from "next/link";
 
-export function OnCompleteHeader({isComplete, nextHref} :{
+/*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
+
+
+export function OnCompleteHeader({ isComplete, title = undefined, button = false }: {
     isComplete: boolean,
-    nextHref: string,
+    title?: string,
+    button: boolean,
+    onComplete: (_: boolean) => void,
 }) {
     return <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
             <Toolbar>
+                {title != undefined &&
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="div"
+                        sx={{ flexGrow: 1, display: 'block' }}>
+                        {title}
+                    </Typography>
+                }
                 <Box sx={{ flexGrow: 1 }} />
-                <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
-                    <IconButton
-                    disabled={!isComplete}
-                        size="large"
-                        color="inherit">
-                            <Link href={nextHref}><EastIcon /></Link>
-                    </IconButton>
-                </Box>
+                {button &&
+                    <Box>
+                        <IconButton
+                            disabled={!isComplete && !button}
+                            size="large"
+                            color="inherit"
+                            onClick={() => { onComplete(true) }}>
+                            <EastIcon />
+                        </IconButton>
+                    </Box>
+                }
 
             </Toolbar>
-
         </AppBar>
     </Box>
 
