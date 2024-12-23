@@ -1,6 +1,6 @@
 "use client";
 import { Paper } from "@mui/material";
-import { Color } from "./page"
+import { Color } from "./Connections"
 
 export class TileData {
     text: string;
@@ -23,11 +23,14 @@ export default function Tile({ data, onSelected }: {
     onSelected: (data: TileData) => boolean
 }) {
     return <Paper
+        width={"20vw"}
         sx={{
-            width: '20%',
             textAlign: 'center',
             backgroundColor: data.selected ? "#5a594f" : "#e9e9e1",
             color: "black",
+            paddingX: '7px',
+            paddingY: '20px',
+            marginX: '4px',
         }}
         onClick={(_) => {
             data.selected = !data.selected

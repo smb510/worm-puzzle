@@ -4,6 +4,8 @@ import OnCompleteHeader from '../components/OnCompleteHeader';
 import { Box, Typography, Stack, Button, Link, TextField } from '@mui/material';
 import { useState } from 'react';
 import { Phase } from '../components/States';
+import Connections from '../connections/Connections';
+import { redirect } from 'next/navigation';
 
 export default function PageThree() {
 
@@ -37,24 +39,10 @@ export default function PageThree() {
     }
 
     function puzzle() {
-        return <div>
-            <iframe src='https://connections.swellgarfo.com/game/-OEe_ITDN_TqqLnzqFOW' height={700} />
-            <Button onClick={(_) => setPhase(Phase.Completion)}>I'm done!</Button>
-        </div>
+        return <Connections onComplete={() => redirect("/four")} />
     }
     function complete() {
-        return <div><Typography variant="body1">
-            One last thing... the reindeer whose feed bags were <span color="yellow">yellow</span> doesn't like the sauce he got with his oats.<br />
-            He's a traditionalist, and prefers the original sauce. (Rude!)<br />
-            Which sauce should we have given him instead?
-        </Typography>
-            <TextField variant='outlined' label='Guess' onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
-                if (event.target.value.toLowerCase() == "hollandaise") {
-                    setCorrect(true)
-                }
-            }} />
-            {isCorrect && <Button><Link href="/four">And we're off!</Link>
-            </Button>}
+        return <div>
         </div>
     }
 }

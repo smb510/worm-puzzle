@@ -14,25 +14,30 @@ export enum Color {
 
 export interface Category {
     color: Color,
-    category: String
+    category: String,
+    items: String,
 }
 
 const categories: Category[] = [
     {
         color: Color.Purple,
-        category: "\"'Twas the night before christmas\" line-enders"
+        category: "\"'Twas the night before christmas\" line-enders",
+        items: "Hoof, Mouse, Clatter, Reindeer"
     },
     {
         color: Color.Blue,
-        category: "Christmas _____"
+        category: "Christmas _____",
+        items: "Vacation, Prince, Story, Vacation"
     },
     {
         color: Color.Green,
-        category: "Biddle Family Christmas Traditions"
+        category: "Biddle Family Christmas Traditions",
+        items: "Coal in Stockings, Arguing over CEO, Trimming Fake Ficus, Bundling Silverware"
     },
     {
         color: Color.Yellow,
-        category: "Eggs Benedicts Substitutions"
+        category: "Eggs Benedicts Substitutions",
+        items: "Gluten-free Bagel, Ham, Mornay Sauce, Fried Egg"
     }
 ]
 
@@ -112,11 +117,12 @@ const items = [
 ];
 
 function getData(): TileData[][] {
+    const rand = items.toSorted((a, b) => { return Math.random() - 0.5 });
     let board: TileData[][] = [];
     for (let i = 0; i < 4; i++) {
         let row: TileData[] = [];
         for (let j = 0; j < 4; j++) {
-            let item = items[(i * 4) + j];
+            let item = rand[(i * 4) + j];
             row.push(new TileData(item.text, i, j, item.color, false));
         }
         board.push(row);
@@ -151,6 +157,15 @@ function handleGuess(board: TileData[][]): [TileData[][], any] {
     for (let i = 0; i < filteredTiles.length; i += 4) {
         newBoard.push(filteredTiles.slice(i, i + 4))
     }
+    for (let rowIdx = 0; rowIdx < newBoard.length; rowIdx++) {
+
+    }
+    newBoard.forEach((row, rowIdx) => {
+        row.forEach((item, colIdx) => {
+            item.row = rowIdx;
+            item.col = colIdx;
+        })
+    })
     return [newBoard, category];
 }
 
@@ -159,14 +174,15 @@ function reset(board: TileData[][]): TileData[][] {
     return board;
 }
 
-export default function Test() {
+export default function Connections({ onComplete }: { onComplete: () => void }) {
+    const [isDone, setDone] = useState(false);
     const [completedCategories, setCompleted] = useState(new Array<Category>());
     const [board, setBoard] = useState(getData());
     return <Box sx={{ flexGrow: 1 }}>
-        <Grid2 container rowSpacing={2} columns={4}>
+        <Grid2 container rowSpacing={2}>
             {
                 completedCategories.map((cat) =>
-                    <CatRow category={cat} />
+                    <CatRow category={cat} key={cat.color} />
                 )
             }
             {board.map((row, index) =>
@@ -181,20 +197,39 @@ export default function Test() {
                 } />
             )}
         </Grid2>
-        <Button onClick={
-            (_) => {
-                if (guess(board)) {
-                    const [newBoard, newCategory] = handleGuess(board);
-                    setBoard(newBoard);
-                    completedCategories.push(newCategory);
-                    setCompleted(completedCategories.slice())
-                } else {
-                    setBoard(reset(board).slice());
+        {!isDone &&
+            <Button variant="outlined"
+                sx={{
+                    marginTop: '8px',
+                    borderRadius: '100px',
+                    marginX: '2%',
+                }}
+                onClick={
+                    (_) => {
+                        if (guess(board)) {
+                            const [newBoard, newCategory] = handleGuess(board);
+                            setBoard(newBoard);
+                            completedCategories.push(newCategory);
+                            setCompleted(completedCategories.slice())
+                            setDone(completedCategories.length == 4);
+                        } else {
+                            setBoard(reset(board).slice());
+                        }
+
+                    }
                 }
-
-            }
+                disabled={selectedCount(board) != 4}>Guess</Button>
         }
-            disabled={selectedCount(board) != 4}>Guess</Button>
+        {isDone && <Button variant="outlined"
+            sx={{
+                marginTop: '8px',
+                borderRadius: '100px',
+                marginX: '2%',
+            }}
+            onClick={
+                (_) => {
+                    onComplete()
+                }
+            }>Next</Button>}
     </Box >
-
 }
