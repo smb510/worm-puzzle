@@ -117,7 +117,7 @@ const items = [
 ];
 
 function getData(): TileData[][] {
-    const rand = items.toSorted((a, b) => { return Math.random() - 0.5 });
+    const rand = items.sort((a, b) => { return Math.random() - 0.5 });
     let board: TileData[][] = [];
     for (let i = 0; i < 4; i++) {
         let row: TileData[] = [];
@@ -152,13 +152,10 @@ function getGuessColor(board: TileData[][]): Color {
 function handleGuess(board: TileData[][]): [TileData[][], any] {
     const color = getGuessColor(board);
     const category = categories.find((p) => p["color"] == color)
-    const filteredTiles = board.flat().filter((p) => p.color != color);
+    const filteredTiles = board.flat().filter((p) => p.color != color).sort((a, b) => { return Math.random() - 0.5 });
     let newBoard: TileData[][] = []
     for (let i = 0; i < filteredTiles.length; i += 4) {
         newBoard.push(filteredTiles.slice(i, i + 4))
-    }
-    for (let rowIdx = 0; rowIdx < newBoard.length; rowIdx++) {
-
     }
     newBoard.forEach((row, rowIdx) => {
         row.forEach((item, colIdx) => {

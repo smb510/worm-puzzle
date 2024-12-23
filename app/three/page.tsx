@@ -8,8 +8,6 @@ import Connections from '../connections/Connections';
 import { redirect } from 'next/navigation';
 
 export default function PageThree() {
-
-    const [isCorrect, setCorrect] = useState(false)
     const [phase, setPhase] = useState(Phase.Story)
     return <div>
         <OnCompleteHeader title="Chapter Three: Everyone is Hungry" isComplete={false} button={false} onComplete={(_: boolean) => { }} />
