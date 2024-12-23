@@ -1,3 +1,4 @@
+"use client";
 import React from "react"
 import { AppContext } from "./App"
 import { Button, Link } from "@mui/material"

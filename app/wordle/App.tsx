@@ -45,7 +45,7 @@ import {
     {} as IWordleGameContext
   )
   
-  function App({onGameOver}: {onGameOver: (success: boolean) => void}) {
+  export default function App({onGameOver}: {onGameOver: (success: boolean) => void}) {
     const [board, setBoard] = useState(boardDefault)
     const [boardStatus, setBoardStatus] = useState(boardStatusDefault)
     const [currAttempt, setCurrAttempt] = useState({
@@ -155,5 +155,3 @@ import {
       </div>
     )
   }
-  
-  export default App
