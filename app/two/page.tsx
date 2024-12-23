@@ -50,7 +50,7 @@ export default function PageTwo() {
         return <div>
             <Typography variant="h6">You did it!</Typography>
             <Typography variant='body1'>But there's more to do... Santa's woes continue.</Typography>
-            <Button onClick={(_) => redirect("/two")}>
+            <Button onClick={(_) => redirect("/three")}>
                 On to the next thing...
             </Button>
         </div>

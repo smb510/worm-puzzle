@@ -16,7 +16,7 @@ export default function PageOne() {
             display="flex"
             justifyContent="center"
             alignItems="center">
-            {phase == Phase.Story && story() }
+            {phase == Phase.Story && story()}
             {phase == Phase.Puzzle && puzzle()}
             {phase == Phase.Completion && complete()}
         </Box>
@@ -43,13 +43,13 @@ export default function PageOne() {
     }
 
     function complete() {
-         return <div>
-        <Typography variant="h6">You did it!</Typography>
-        <Typography variant='body1'>But there's more to do... Santa's woes continue.</Typography>
-        <Button onClick={(_) => redirect("/three")}>
-            On to the next thing...
-        </Button>
-    </div>
+        return <div>
+            <Typography variant="h6">You did it!</Typography>
+            <Typography variant='body1'>But there's more to do... Santa's woes continue.</Typography>
+            <Button onClick={(_) => redirect("/two")}>
+                On to the next thing...
+            </Button>
+        </div>
 
     }
 
