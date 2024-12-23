@@ -62,6 +62,6 @@ const data = {
     }
 }
 
-export default function CrosswordPuzzle({ setCrosswordCorrect }: { setCrosswordCorrect: (isCorrect: boolean) => void }) {
-    <Crossword data={data} onCrosswordCorrect={(isCorrect) => setCrosswordCorrect(isCorrect)} />
+export default function CrosswordPuzzle({ completionListener }: { completionListener: (isCorrect: boolean) => void }) {
+    return <Crossword data={data} onCrosswordComplete={completionListener} />
 }
