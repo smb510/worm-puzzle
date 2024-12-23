@@ -51,7 +51,7 @@ export default function PageFour() {
                     setCorrect(true)
                 }
             }} />
-            {isCorrect && <Button><Link href="/four">Down the chimney we go!</Link>
+            {isCorrect && <Button><Link href="/five">Down the chimney we go!</Link>
             </Button>}
         </div>
     }

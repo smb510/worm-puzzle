@@ -21,7 +21,7 @@ const data = {
             col: 0
         },
         6: {
-            clue: "Make this gay, and all your troubles will be miles away",
+            clue: "In song, make this gay, and all your troubles will be miles away",
             answer: "YULETIDE",
             row: 6,
             col: 3
@@ -35,7 +35,7 @@ const data = {
     },
     down: {
         1: {
-            clue: "A tight squeeze in the night?",
+            clue: "A tight squeeze in the night for a jolly fellow?",
             answer: "CHIMNEY",
             row: 0,
             col: 3
