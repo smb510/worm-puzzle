@@ -45,7 +45,7 @@ import {
     {} as IWordleGameContext
   )
   
-  function App({onGameOver}: {onGameOver: (success: boolean) => void}) {
+  function Wordle({onGameOver}: {onGameOver: (success: boolean) => void}) {
     const [board, setBoard] = useState(boardDefault)
     const [boardStatus, setBoardStatus] = useState(boardStatusDefault)
     const [currAttempt, setCurrAttempt] = useState({
@@ -127,7 +127,8 @@ import {
     return (
       <div className="App">
         <nav>
-          <h1>Wordle</h1>
+          <h1>SleighMaster 5000</h1>
+          <h2>Unlock with password:</h2>
         </nav>
         <AppContext.Provider
           value={{
@@ -156,4 +157,4 @@ import {
     )
   }
   
-  export default App
+  export default Wordle
