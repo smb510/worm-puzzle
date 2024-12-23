@@ -23,7 +23,6 @@ export default function Tile({ data, onSelected }: {
     onSelected: (data: TileData) => boolean
 }) {
     return <Paper
-        width={"20vw"}
         sx={{
             textAlign: 'center',
             backgroundColor: data.selected ? "#5a594f" : "#e9e9e1",
