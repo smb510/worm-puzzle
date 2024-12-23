@@ -1,6 +1,6 @@
 "use client";
 
-import { OnCompleteHeader } from '../components/OnCompleteHeader';
+import  OnCompleteHeader from '../components/OnCompleteHeader';
 import { Box, Typography, Stack } from '@mui/material';
 
 export default function Home() {

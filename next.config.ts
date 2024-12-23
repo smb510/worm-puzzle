@@ -7,16 +7,6 @@ const nextConfig: NextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    turbo: {
-      rules: {
-        '*.txt': {
-          loaders: ['raw-loader'],
-          as: '*.js',
-        },
-      },
-    },
-  },
 };
 
 export default nextConfig;
