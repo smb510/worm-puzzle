@@ -81,7 +81,7 @@ const items = [
 
     // green
     {
-        text: "Coal in Stockings",
+        text: "Highest Ornament on the Tree",
         color: Color.Green
     },
     {
