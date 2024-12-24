@@ -194,12 +194,12 @@ export default function Connections({ onComplete }: { onComplete: () => void }) 
                 } />
             )}
         </Grid2>
-        {!isDone &&
-            <Button variant="outlined"
+        {!isDone && <Box textAlign="center">
+            <Button variant='outlined'
                 sx={{
-                    marginTop: '8px',
-                    borderRadius: '100px',
-                    marginX: '2%',
+                    margin: 2,
+                    borderRadius: 10,
+                    padding: 2
                 }}
                 onClick={
                     (_) => {
@@ -216,17 +216,19 @@ export default function Connections({ onComplete }: { onComplete: () => void }) 
                     }
                 }
                 disabled={selectedCount(board) != 4}>Guess</Button>
+        </Box>
         }
-        {isDone && <Button variant="outlined"
-            sx={{
-                marginTop: '8px',
-                borderRadius: '100px',
-                marginX: '2%',
-            }}
-            onClick={
-                (_) => {
-                    onComplete()
-                }
-            }>Next</Button>}
+        {isDone && <Box textAlign="center">
+            <Button variant="outlined"
+                sx={{
+                    marginTop: 2,
+                    borderRadius: '100px',
+                    marginX: '2%',
+                }}
+                onClick={
+                    (_) => {
+                        onComplete()
+                    }
+                }>Next</Button> </Box>}
     </Box >
 }

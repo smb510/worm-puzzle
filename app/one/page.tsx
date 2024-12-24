@@ -25,12 +25,22 @@ export default function PageOne() {
 
     function story() {
         return <div>
-            <Typography variant="body1">
+            <Typography variant="body1"
+                sx={{
+                    marginX: 2
+                }}>
                 First things first, Secret Santa needs to unlock his sleigh. He set his passcode to a five letter word, and he can&apos;t seem to remember it! His phone tells him a few things after he guesses a password: he knows which letters are right and in the right place, and which ones are the right letter, but in the wrong place. He only gets six tries to get it right… do you think you can help him guess?
             </Typography>
-            <Button onClick={(_) => setPhase(Phase.Puzzle)}>
-                Unlock the sleigh
-            </Button>
+            <Box textAlign="center">
+                <Button variant='outlined'
+                    sx={{
+                        marginTop: 2,
+                        borderRadius: 10,
+                        padding: 2
+                    }} onClick={(_) => setPhase(Phase.Puzzle)}>
+                    Unlock the sleigh
+                </Button>
+            </Box>
         </div>
     }
 
@@ -43,13 +53,19 @@ export default function PageOne() {
     }
 
     function complete() {
-        return <div>
+        return <Box textAlign="center">
             <Typography variant="h6">You did it!</Typography>
             <Typography variant='body1'>But there's more to do... Santa's woes continue.</Typography>
-            <Button onClick={(_) => redirect("/two")}>
+            <Button variant='outlined'
+                sx={{
+                    margin: 2,
+                    borderRadius: 10,
+                    padding: 2
+                }}
+                onClick={(_) => redirect("/two")}>
                 On to the next thing...
             </Button>
-        </div>
+        </Box>
 
     }
 

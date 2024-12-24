@@ -7,7 +7,6 @@ export default function CatRow({ category }: {
     return <Grid2 size={12} display="grow" key={category.color}>
         <Paper
             sx={{
-                display: 'flex',
                 textAlign: 'center',
                 backgroundColor: category.color,
                 color: "black",

@@ -31,9 +31,17 @@ export default function PageTwo() {
                 He&apos;s got 6 of them there, Rudolph included, but 3 are still missing in action.<br />
                 Can you help Santa figure out which ones are missing?
             </Typography>
-            <Button onClick={(_) => setPhase(Phase.Puzzle)}>
-                Here, little reindeer!
-            </Button>
+            <Box textAlign="center">
+                <Button variant='outlined'
+                    sx={{
+                        margin: 2,
+                        borderRadius: 10,
+                        padding: 2
+                    }}
+                    onClick={(_) => setPhase(Phase.Puzzle)}>
+                    Here, little reindeer!
+                </Button>
+            </Box>
         </div>
     }
 
@@ -47,13 +55,20 @@ export default function PageTwo() {
     }
 
     function complete() {
-        return <div>
-            <Typography variant="h6">You did it!</Typography>
-            <Typography variant='body1'>But there's more to do... Santa's woes continue.</Typography>
-            <Button onClick={(_) => redirect("/three")}>
-                On to the next thing...
+        return <Box textAlign="center">
+            <Typography variant="h6">Done!!</Typography>
+            <Typography variant='body1'>The reindeer are all here. We&apos;re surely good to go now, right?</Typography>
+            <Button
+                variant='outlined'
+                sx={{
+                    margin: 2,
+                    borderRadius: 10,
+                    padding: 2
+                }}
+                onClick={(_) => redirect("/three")}>
+                I hope so!
             </Button>
-        </div>
+        </Box>
 
     }
 }

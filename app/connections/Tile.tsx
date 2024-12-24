@@ -1,5 +1,5 @@
 "use client";
-import { Paper } from "@mui/material";
+import { Paper, withStyles } from "@mui/material";
 import { Color } from "./Connections"
 
 export class TileData {

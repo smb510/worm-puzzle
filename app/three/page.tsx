@@ -30,14 +30,27 @@ export default function PageThree() {
                 We only know that of the 16 feed bags, there are 4 groups of 4, all based on their labels.<br />
                 Can you help Santa get all the food organized so he can get going?
             </Typography>
-            <Button onClick={(_) => setPhase(Phase.Puzzle)}>
-                Soup&apos;s on!
-            </Button>
+            <Box textAlign="center">
+                <Button
+                    variant='outlined'
+                    sx={{
+                        margin: 2,
+                        borderRadius: 10,
+                        padding: 2
+                    }}
+                    onClick={(_) => setPhase(Phase.Puzzle)}>
+                    Soup&apos;s on!
+                </Button>
+            </Box>
         </div>
     }
 
     function puzzle() {
-        return <Connections onComplete={() => redirect("/four")} />
+        return <Box sx={{
+            margin: 2,
+        }}>
+            <Connections onComplete={() => redirect("/four")} />
+        </Box>
     }
     function complete() {
         return <div>

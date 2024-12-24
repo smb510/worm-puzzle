@@ -11,7 +11,7 @@ export default function PageFour() {
     const [isCorrect, setCorrect] = useState(false)
     const [phase, setPhase] = useState(Phase.Story)
     return <div>
-        <OnCompleteHeader title="Chapter Three: Everyone is Hungry" isComplete={false} button={false} onComplete={(_: boolean) => { }} />
+        <OnCompleteHeader title="Chapter Four: Cruising" isComplete={false} button={false} onComplete={(_: boolean) => { }} />
         <Box
             display="flex"
             justifyContent="center"
@@ -30,29 +30,56 @@ export default function PageFour() {
                 It's a long way down to Florida, and Santa needs to pass the time.<br />
                 He could use some help with his word search. Can you figure out the special word so Santa won&apos;t miss your stop?
             </Typography>
-            <Button onClick={(_) => setPhase(Phase.Puzzle)}>
-                Sure!
-            </Button>
+            <Box textAlign="center">
+                <Button variant='outlined'
+                    sx={{
+                        margin: 2,
+                        borderRadius: 10,
+                        padding: 2
+                    }}
+                    onClick={(_) => setPhase(Phase.Puzzle)}>
+                    Sure!
+                </Button>
+            </Box>
         </div>
     }
 
     function puzzle() {
         return <div>
             <iframe src='https://strandstudio.thegoodboi.net/play?id=3FAR9S' height={700} />
-            <Button onClick={(_) => setPhase(Phase.Completion)}>I'm done!</Button>
+            <Box textAlign="center">
+                <Button variant='outlined'
+                    sx={{
+                        margin: 2,
+                        borderRadius: 10,
+                        padding: 2
+                    }}
+                    onClick={(_) => setPhase(Phase.Completion)}>I'm done!</Button>
+            </Box>
         </div>
     }
     function complete() {
-        return <div><Typography variant="body1">
+        return <Box textAlign={"center"}><Typography variant="body1">
             What is the special word?
         </Typography>
-            <TextField variant='outlined' label='Guess' onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
-                if (event.target.value.toLowerCase() == "decorations") {
-                    setCorrect(true)
-                }
-            }} />
-            {isCorrect && <Button><Link href="/five">Down the chimney we go!</Link>
+            <TextField
+                sx={{
+                    margin: 2,
+                    display: 'block'
+                }}
+                label='Guess' onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    if (event.target.value.toLowerCase() == "decorations") {
+                        setCorrect(true)
+                    }
+                }} />
+            {isCorrect && <Button
+                variant='outlined'
+                sx={{
+                    margin: 2,
+                    borderRadius: 10,
+                    padding: 2
+                }}><Link href="/five">Down the chimney we go!</Link>
             </Button>}
-        </div>
+        </Box>
     }
 }
