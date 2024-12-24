@@ -27,7 +27,8 @@ export default function PageOne() {
         return <div>
             <Typography variant="body1"
                 sx={{
-                    marginX: 2
+                    marginX: 2,
+                    marginY: 1
                 }}>
                 First things first, Secret Santa needs to unlock his sleigh. He set his passcode to a five letter word, and he can&apos;t seem to remember it! His phone tells him a few things after he guesses a password: he knows which letters are right and in the right place, and which ones are the right letter, but in the wrong place. He only gets six tries to get it right… do you think you can help him guess?
             </Typography>
