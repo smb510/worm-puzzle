@@ -43,75 +43,68 @@ const categories: Category[] = [
 
 
 const items = [
-    // purple
-    {
-        text: "Hoof",
-        color: Color.Purple
-    },
     {
         text: "Mouse",
         color: Color.Purple
     },
     {
-        text: "Clatter",
-        color: Color.Purple
-    },
-    {
-        text: "Reindeer",
-        color: Color.Purple
-    },
-
-    // blue
-    {
-        text: "Prince",
-        color: Color.Blue
-    },
-    {
-        text: "Carol",
-        color: Color.Blue
-    },
-    {
-        text: "Story",
-        color: Color.Blue
-    },
-    {
-        text: "Vacation",
-        color: Color.Blue
-    },
-
-    // green
-    {
-        text: "Highest Ornament on the Tree",
-        color: Color.Green
-    },
-    {
-        text: "Arguing over CEO",
-        color: Color.Green
-    },
-    {
-        text: "Trimming Fake Ficus",
-        color: Color.Green
-    },
-    {
         text: "Bundling Silverware",
         color: Color.Green
-    },
-
-    // yellow
-    {
-        text: "Gluten-free Bagel",
-        color: Color.Yellow
     },
     {
         text: "Ham",
         color: Color.Yellow
     },
     {
+        text: "Vacation",
+        color: Color.Blue
+    },
+    {
+        text: "Clatter",
+        color: Color.Purple
+    },
+    {
+        text: "Arguing over CEO",
+        color: Color.Green
+    },
+    {
+        text: "Prince",
+        color: Color.Blue
+    },
+    {
         text: "Fried Egg",
         color: Color.Yellow
     },
     {
-        text: "Mornay Sauce",
+        text: "Cheese Sauce",
+        color: Color.Yellow
+    },
+    {
+        text: "Reindeer",
+        color: Color.Purple
+    },
+    {
+        text: "Story",
+        color: Color.Blue
+    },
+    {
+        text: "Highest Ornament on the Tree",
+        color: Color.Green
+    },
+    {
+        text: "Carol",
+        color: Color.Blue
+    },
+    {
+        text: "Hoof",
+        color: Color.Purple
+    },
+    {
+        text: "Trimming Fake Ficus",
+        color: Color.Green
+    },
+    {
+        text: "Gluten-free Bagel",
         color: Color.Yellow
     },
 ];
