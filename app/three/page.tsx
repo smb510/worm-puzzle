@@ -6,8 +6,13 @@ import { useState } from 'react';
 import { Phase } from '../components/States';
 import Connections from '../connections/Connections';
 import { redirect } from 'next/navigation';
+import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 
 export default function PageThree() {
+
+    const Connexions = dynamic(() => import('../connections/Connections'), { ssr: false });
+
     const [phase, setPhase] = useState(Phase.Story)
     return <div>
         <OnCompleteHeader title="Chapter Three: Everyone is Hungry" isComplete={false} button={false} onComplete={(_: boolean) => { }} />
@@ -49,7 +54,7 @@ export default function PageThree() {
         return <Box sx={{
             margin: 2,
         }}>
-            <Connections onComplete={() => redirect("/four")} />
+            <Connexions onComplete={() => redirect("/four")} />
         </Box>
     }
     function complete() {

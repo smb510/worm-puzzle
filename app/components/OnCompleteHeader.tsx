@@ -15,7 +15,7 @@ export default function OnCompleteHeader({ isComplete, title = undefined, button
     onComplete: (_: boolean) => void,
 }) {
     return <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" >
             <Toolbar>
                 {title != undefined &&
                     <Typography
